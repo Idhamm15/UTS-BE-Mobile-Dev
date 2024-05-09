@@ -8,26 +8,30 @@ import (
 )
 
 type Product struct {
-	ID          uint   `json:"id"`
+	ID          int   `json:"id"`
 	ProductName string `json:"product_name"`
-	Price       uint   `json:"price"`
+	Price       int   `json:"price"`
 	Description string `json:"description"`
 }
 
 type Users struct {
-	ID          uint   `json:"id"`
+	ID          int   `json:"id"`
 	Username string `json:"username"`
 	Password string `json:"password"`
+	PhoneNumber string `json:"phone_number"`
 }
 
 var products = []Product{
-	{ID: 1, ProductName: "Product 1", Price: 100, Description: "Description 1"},
-	{ID: 2, ProductName: "Product 2", Price: 200, Description: "Description 2"},
+	{ID: 1, ProductName: "Product 1", Price: 10000, Description: "Description 1"},
+	{ID: 2, ProductName: "Product 2", Price: 20000, Description: "Description 2"},
+	{ID: 3, ProductName: "Product 2", Price: 20000, Description: "Description 2"},
+	{ID: 4, ProductName: "Product 2", Price: 20000, Description: "Description 2"},
+	{ID: 5, ProductName: "Product 2", Price: 20000, Description: "Description 2"},
 }
 
 var users = []Users{
-	{ID: 1, Username: "User1", Password: "user111"},
-	{ID: 2, Username: "User2", Password: "user222"},
+	{ID: 1, Username: "User1", Password: "user111", PhoneNumber: "08929393793"},
+	{ID: 2, Username: "User2", Password: "user222", PhoneNumber: "08400750575"},
 }
 
 func handlerProduct(c *gin.Context) {
@@ -54,7 +58,7 @@ func main() {
 		c.Next()
 	})
 
-	r.GET("/api/users", handlerProduct)
+	r.GET("/api/users", handlerUser)
 	r.GET("/api/products", handlerProduct)
 	
 
