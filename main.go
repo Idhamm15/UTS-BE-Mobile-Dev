@@ -54,7 +54,7 @@ func main() {
 		c.Next()
 	})
 
-	r.GET("/api/user", handlerProduct)
+	r.GET("/api/users", handlerProduct)
 	r.GET("/api/products", handlerProduct)
 	
 
